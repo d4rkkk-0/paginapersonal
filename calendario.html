@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Calendario de Partidos</title>
+  <style>
+     img:hover {
+      transform: scale(1.1);
+      transition: transform 0.4s ease;
+      cursor: pointer;
+      filter: brightness(1.1);
+    }
+    body {
+      background-color: #2629ff;
+      font-family: 'Times New Roman', Times, serif;
+      text-align: center;
+      color: white; 
+      margin: 0;
+      padding-bottom: 60px; /* espacio para footer */
+      min-height: 100vh;
+      position: relative;
+    }
+    /* Contenedor para logo + título */
+    .header-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .header-container img {
+      width: 50px;
+      height: auto;
+    }
+    h1 {
+      font-size: 36px;
+      margin: 0;
+    }
+    nav a {
+      margin: 15px;
+      text-decoration: none;
+      color: white; 
+      font-weight: bold;
+      font-size: 18px;
+    }
+    table {
+      margin: 20px auto;
+      width: 90%;
+      border-collapse: collapse;
+      background-color: #ffffff10;
+      color: white;
+    }
+    th, td {
+      border: 1px solid white;
+      padding: 10px;
+    }
+    th {
+      background-color: #000080;
+    }
+    caption {
+      margin-bottom: 10px;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    #cuenta-regresiva {
+      font-size: 24px;
+      margin-top: 30px;
+      padding: 10px;
+      background-color: #000080;
+      border-radius: 10px;
+      display: inline-block;
+    }
+    footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background-color: #000080;
+      color: white;
+      padding: 10px 0;
+      font-size: 14px;
+      font-family: 'Times New Roman', Times, serif;
+      text-align: center;
+    }
+    /* Botones */
+    button {
+      padding: 8px 15px;
+      margin: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      background-color: #000080;
+      color: white;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #0000cc;
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="header-container">
+    <img src="imagenes/logo.jpg" alt="Logo de Fútbol">
+    <h1>Calendario de Partidos</h1>
+  </div>
+  
+  <!-- Menú de navegación -->
+  <nav>
+    <a href="index.html">Noticias</a>
+    <a href="curiosidades.html">Curiosidades</a>
+    <a href="fichajes.html">Fichajes</a>
+    <a href="iconos.html">Íconos</a>
+    <a href="historia.html">Historia</a>
+    <a href="calendario.html">Calendario</a>
+  </nav>
+
+  
+  <div id="cuenta-regresiva">
+    Faltan <span id="dias"></span> días, <span id="horas"></span> horas, 
+    <span id="minutos"></span> minutos y <span id="segundos"></span> segundos para el Mundial 2026 🏆
+  </div>
+
+  
+  <table>
+    <caption>Próximos Encuentros</caption>
+    <thead>
+      <tr>
+        <th>Fecha</th>
+        <th>Partido</th>
+        <th>Hora</th>
+        <th>Estadio</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>28/09/2025</td>
+        <td>Barcelona vs Real Madrid</td>
+        <td>16:00</td>
+        <td>Camp Nou</td>
+      </tr>
+      <tr>
+        <td>30/09/2025</td>
+        <td>Manchester City vs PSG</td>
+        <td>20:00</td>
+        <td>Etihad Stadium</td>
+      </tr>
+      <tr>
+        <td>02/10/2025</td>
+        <td>Boca Juniors vs River Plate</td>
+        <td>18:30</td>
+        <td>La Bombonera</td>
+      </tr>
+      <tr>
+        <td>05/10/2025</td>
+        <td>Juventus vs Milan</td>
+        <td>21:00</td>
+        <td>Allianz Stadium</td>
+      </tr>
+      <tr>
+        <td>10/10/2025</td>
+        <td>América vs Chivas</td>
+        <td>19:00</td>
+        <td>Estadio Azteca</td>
+      </tr>
+      <tr>
+        <td>15/10/2025</td>
+        <td>Alemania vs Francia</td>
+        <td>20:45</td>
+        <td>Signal Iduna Park</td>
+      </tr>
+    </tbody>
+  </table>
+
+  
+  <script>
+    function actualizarCuentaRegresiva() {
+      const fechaMundial = new Date("2026-06-11T00:00:00").getTime(); 
+      const ahora = new Date().getTime();
+      const diferencia = fechaMundial - ahora;
+
+      const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+      const horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
+      const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
+
+      document.getElementById("dias").innerText = dias;
+      document.getElementById("horas").innerText = horas;
+      document.getElementById("minutos").innerText = minutos;
+      document.getElementById("segundos").innerText = segundos;
+    }
+
+    setInterval(actualizarCuentaRegresiva, 1000);
+    actualizarCuentaRegresiva(); 
+  </script>
+  
+  <figure style="margin-top: 40px;">
+    <img id="imagen-cambiable" src="imagenes/chelsea.jpg" alt="Jugador celebrando un gol" width="600" style="display: block; margin: auto;">
+    <figcaption id="caption" style="margin-top: 10px;">Momento inolvidable en el fútbol</figcaption>
+    
+    <div style="margin-top: 15px;">
+      <button id="anterior">Anterior</button>
+      <button id="siguiente">Siguiente</button>
+    </div>
+  </figure>
+
+  <script>
+    const imagenes = [
+      { src: "imagenes/chelsea.jpg", caption: "Ultimo partido del mundial de clubes" },
+      { src: "imagenes/riverboca.jpg", caption: "River vs Boca" },
+      { src: "imagenes/amechivas.jpg", caption: "Clasico Mexicano" },
+      { src: "imagenes/citypsg.jpg", caption: "Amistoso Europeo" }
+    ];
+
+    let indice = 0;
+
+    const imgElement = document.getElementById("imagen-cambiable");
+    const captionElement = document.getElementById("caption");
+    const btnAnterior = document.getElementById("anterior");
+    const btnSiguiente = document.getElementById("siguiente");
+
+    function mostrarImagen() {
+      imgElement.src = imagenes[indice].src;
+      captionElement.textContent = imagenes[indice].caption;
+    }
+
+    btnAnterior.addEventListener("click", () => {
+      indice = (indice - 1 + imagenes.length) % imagenes.length;
+      mostrarImagen();
+    });
+
+    btnSiguiente.addEventListener("click", () => {
+      indice = (indice + 1) % imagenes.length;
+      mostrarImagen();
+    });
+
+    mostrarImagen();
+  </script>
+
+  <footer>
+    © Derechos reservados CECYTEM 2025
+  </footer>
+
+</body>
+</html>

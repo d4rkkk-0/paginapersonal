@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Futbol</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        header {
+            background-color: #1e2a38;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #2e3b4e;
+        }
+
+        nav a {
+            color: #fff;
+            padding: 15px 20px;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #1f2a3a;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        .card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        h2 {
+            margin-bottom: 15px;
+            color: #1e2a38;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table th, table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        table th {
+            background-color: #1e2a38;
+            color: white;
+        }
+
+        button {
+            padding: 8px 15px;
+            background-color: #1e2a38;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background-color: #2e3b4e;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+            }
+
+            nav a {
+                text-align: center;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    Panel de Administrador - Futbol
+</header>
+
+<nav>
+    <a href="#">Dashboard</a>
+    <a href="#">Equipos</a>
+    <a href="#">Jugadores</a>
+    <a href="#">Partidos</a>
+    <a href="#">Estadísticas</a>
+</nav>
+
+<div class="container">
+
+    <div class="card">
+        <h2>Últimos Jugadores Registrados</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Equipo</th>
+                    <th>Posición</th>
+                    <th>Acción</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Luis Martínez</td>
+                    <td>Barcelona</td>
+                    <td>Delantero</td>
+                    <td><button>Editar</button></td>
+                </tr>
+                <tr>
+                    <td>Carlos Gómez</td>
+                    <td>Real Madrid</td>
+                    <td>Portero</td>
+                    <td><button>Editar</button></td>
+                </tr>
+                <tr>
+                    <td>Juan Pérez</td>
+                    <td>Atlético</td>
+                    <td>Defensa</td>
+                    <td><button>Editar</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="card">
+        <h2>Próximos Partidos</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Equipo Local</th>
+                    <th>Equipo Visitante</th>
+                    <th>Fecha</th>
+                    <th>Acción</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Barcelona</td>
+                    <td>Real Madrid</td>
+                    <td>30/11/2025</td>
+                    <td><button>Editar</button></td>
+                </tr>
+                <tr>
+                    <td>Atlético</td>
+                    <td>Sevilla</td>
+                    <td>02/12/2025</td>
+                    <td><button>Editar</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+</body>
+</html>
